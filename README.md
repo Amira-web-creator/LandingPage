@@ -4,13 +4,6 @@ Landing Page Project is a multi-section landing page, with a dynamically updatin
 
 ## Table of Contents
 
-*landing page project using
-*css 
-*js 
-*html
-*Readme file
-
-
 ## Instructions
 
 ## Usage

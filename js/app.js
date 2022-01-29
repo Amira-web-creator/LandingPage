@@ -1,3 +1,5 @@
+const startingTime = performance.now();
+
 const allSections = document.getElementsByTagName("section"); // hold all the sections list
 const navBar = document.getElementById("navbar__list"); // hold the navbar element
 let listItems = "";
@@ -8,6 +10,12 @@ function creatList(...allSections) {
   //loop for sections list
 
   allSections.forEach((section) => {
+    document.addEventListener("DOMContentLoaded", function () {
+      createdListItem.addEventListener("click", function () {
+        section.scrollIntoView();
+      });
+    });
+
     const sectionDataNav = section.getAttribute("data-nav"); // get the section data-nav
     const sectionID = section.getAttribute("id"); // get the section data-nav
     const anchor = document.createElement("a"); //creat anchor element
@@ -44,13 +52,6 @@ function creatList(...allSections) {
   });
 
   // scrolling by click the li item
-
-  for (let i = 0; i < allSections.length; i++) {
-    navItem = listItems[i];
-    navItem.addEventListener("click", function () {
-      allSections[i].scrollIntoView();
-    });
-  }
 }
 
 //hide the navbar when not scrolling for 5 seconds
@@ -72,3 +73,25 @@ window.addEventListener(
 );
 
 creatList(...allSections);
+
+// let count = 1
+
+// function generateParagraphs() {
+//     const fragment = document.createDocumentFragment();
+
+//     for (let i = 1; i <= 500; i++) {
+//         const newElement = document.createElement('p');
+//         newElement.textContent = 'This is paragraph number ' + count;
+//         count = count + 1;
+
+//         fragment.appendChild(newElement);
+//     }
+
+//     document.body.appendChild(fragment);
+
+//     if (count < 20000) {
+//         setTimeout(generateParagraphs, 5000);
+//     }
+// }
+
+// generateParagraphs();
